@@ -549,8 +549,8 @@ def main():
     if cmd not in commands:
         raise ValueError(
             "Specify a command: either "
-            "`py2md source_file.py out_file.md` or "
-            "`nb2md source_file.ipynb out_file.md` or "
+            "`py2md source_file.py out_file` or "
+            "`nb2md source_file.ipynb out_file` or "
             "`nb2py source_filename.ipynb target_filename.py` or "
             "`py2nb source_filename.py target_file name.ipynb` or "
             "`count_loc source_filename.py`."
@@ -570,21 +570,13 @@ def main():
                 raise ValueError(
                     f"The source filename should be a Notebook file. Got: {source}"
                 )
-            if not target.endswith(".md"):
-                raise ValueError(
-                    f"The target filename should be a Markdown file. Got: {target}"
-                )
-            nb_to_md(source, target)
+            nb_to_md(source, md_path=target + ".md", img_dir=target)
         if cmd == "py2md":
             if not source.endswith(".py"):
                 raise ValueError(
                     f"The source filename should be a Python file. Got: {source}"
                 )
-            if not target.endswith(".md"):
-                raise ValueError(
-                    f"The target filename should be a Markdown file. Got: {target}"
-                )
-            py_to_md(source, target)
+            py_to_md(source, nb_path=".ipynb", md_path=target+".md", img_dir=target)
         if cmd == "py2nb":
             if not source.endswith(".py"):
                 raise ValueError(
