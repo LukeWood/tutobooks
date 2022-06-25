@@ -562,6 +562,26 @@ def main():
         source = sys.argv[2]
         target = sys.argv[3]
 
+        if cmd == "nb2md":
+            if not source.endswith(".ipynb"):
+                raise ValueError(
+                    f"The source filename should be a Notebook file. Got: {source}"
+                )
+            if not target.endswith(".md"):
+                raise ValueError(
+                    f"The target filename should be a Markdown file. Got: {target}"
+                )
+            nb_to_md(source, target)
+        if cmd == "py2md":
+            if not source.endswith(".py"):
+                raise ValueError(
+                    f"The source filename should be a Python file. Got: {source}"
+                )
+            if not target.endswith(".md"):
+                raise ValueError(
+                    f"The target filename should be a Markdown file. Got: {target}"
+                )
+            py_to_md(source, target)
         if cmd == "py2nb":
             if not source.endswith(".py"):
                 raise ValueError(
