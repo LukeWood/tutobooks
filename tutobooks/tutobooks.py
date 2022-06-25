@@ -545,9 +545,12 @@ NB_BASE = {
 
 def main():
     cmd = sys.argv[1]
-    if cmd not in {"nb2py", "py2nb", "count_loc"}:
+    commands = {"py2md", "nb2md", "nb2py", "py2nb", "count_loc"}
+    if cmd not in commands:
         raise ValueError(
             "Specify a command: either "
+            "`py2md source_file.py out_file.md` or "
+            "`nb2md source_file.ipynb out_file.md` or "
             "`nb2py source_filename.ipynb target_filename.py` or "
             "`py2nb source_filename.py target_file name.ipynb` or "
             "`count_loc source_filename.py`."
