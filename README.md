@@ -19,11 +19,12 @@ annotation, one of:
 - shell: execute this block while prefixing each line with `!`.
 
 The script form should start with a header with the following fields:
-Title:
-Author: (could be `Authors`: as well, and may contain markdown links)
-Date created: (date in yyyy/mm/dd format)
-Last modified: (date in yyyy/mm/dd format)
-Description: (one-line text description)
+
+Title:<br>
+Author: (could be `Authors`: as well, and may contain markdown links)<br>
+Date created: (date in yyyy/mm/dd format)<br>
+Last modified: (date in yyyy/mm/dd format)<br>
+Description: (one-line text description)<br>
 
 You would typically start from an existing notebook.
 
