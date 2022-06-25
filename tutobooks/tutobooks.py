@@ -570,13 +570,27 @@ def main():
                 raise ValueError(
                     f"The source filename should be a Notebook file. Got: {source}"
                 )
-            nb_to_md(source, md_path=target + ".md", img_dir=target)
+            if not target.endswith(".md"):
+                raise ValueError(
+                    f"The target filename should be a Markdown file. Got: {source}"
+                )
+            without_md = "".join(target.rsplit(".md", 1))
+            path_without_last_name = str(without_md).split(os.path.sep)[:-1]
+            img_dir = "/".join(path_without_last_name)
+            nb_to_md(source, md_path=target, img_dir=img_dir)
         if cmd == "py2md":
             if not source.endswith(".py"):
                 raise ValueError(
                     f"The source filename should be a Python file. Got: {source}"
                 )
-            py_to_md(source, nb_path=".ipynb", md_path=target+".md", img_dir=target)
+            if not target.endswith(".md"):
+                raise ValueError(
+                    f"The target filename should be a Markdown file. Got: {source}"
+                )
+            without_md = "".join(target.rsplit(".md", 1))
+            path_without_last_name = str(without_md).split(os.path.sep)[:-1]
+            img_dir = "/".join(path_without_last_name)
+            py_to_md(source, nb_path=".ipynb", md_path=target, img_dir=img_dir)
         if cmd == "py2nb":
             if not source.endswith(".py"):
                 raise ValueError(
