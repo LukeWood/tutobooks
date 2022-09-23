@@ -4,6 +4,28 @@
 
 Taken from [keras-io/scripts](https://github.com/keras-team/keras-io).
 
+## Installation
+
+You can install from GitHub or PyPi:
+
+```bash
+pip install tutobooks
+```
+
+or
+
+```bash
+pip install git+https://github.com/lukewood/tutobooks
+```
+
+or
+
+```bash
+git clone https://github.com/lukewood/tutoboks
+cd tutobooks
+python setup.py develop
+```
+
 ## Overview
 
 A tutobook is a tutorial available simultaneously as a notebook,
