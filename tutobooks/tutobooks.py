@@ -65,7 +65,6 @@ import shutil
 import tempfile
 from pathlib import Path
 
-TIMEOUT = 60 * 60
 MAX_LOC = 300
 
 
@@ -186,8 +185,6 @@ def py_to_nb(py_path, nb_path, fill_outputs=False):
                 "jupyter nbconvert --to notebook --execute --debug "
                 + str(nb_path)
                 + " --inplace"
-                + " --ExecutePreprocessor.timeout="
-                + str(TIMEOUT)
             )
         finally:
             new_files = os.listdir(parent_dir)
@@ -236,8 +233,6 @@ def nb_to_md(nb_path, md_path, img_dir, working_dir=None):
         + nb_fname
         + " --output "
         + target_md
-        + " --ExecutePreprocessor.timeout="
-        + str(TIMEOUT)
     )
     if os.path.exists(md_name + ".md"):
         success = True
