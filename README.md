@@ -94,3 +94,6 @@ Conversion to markdown from python:
 tutobooks py2md mypath.py mypath.md
 ```
 
+## Credits
+
+Francois Chollet wrote almost all of the code for this [(see keras.io repo)](https://github.com/keras-team/keras-io), I just packaged it up into a PyPi package with proper CLI parsing and some tweaking to make the usage more generic.
