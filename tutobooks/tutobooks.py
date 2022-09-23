@@ -579,8 +579,8 @@ def main():
             without_md = "".join(target.rsplit(".md", 1))
             path_without_last_name = str(without_md).split(os.path.sep)[:-1]
             img_dir = "/".join(path_without_last_name)
-            nb_path=f"{tempfile.gettempdir()}/{path_without_last_name}.ipynb"
-            py_to_md(source, nb_path=nb_path, md_path=target, img_dir=img_dir)
+            py_to_md(source, nb_path='.ipynb', md_path=target, img_dir=img_dir)
+            os.remove('.ipynb')
         if cmd == "py2nb":
             if not source.endswith(".py"):
                 raise ValueError(
