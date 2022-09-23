@@ -4,6 +4,8 @@
 
 Taken from [keras-io/scripts](https://github.com/keras-team/keras-io).
 
+## Overview
+
 A tutobook is a tutorial available simultaneously as a notebook,
 as a Python script, and as a nicely rendered webpage.
 
@@ -34,32 +36,39 @@ Save it to disk (let's say as `path_to_your_nb.ipynb`).
 Then run:
 
 ```
-python tutobooks nb2py path_to_your_nb.ipynb ../examples/your_example.py
+tutobooks nb2py path_to_your_nb.ipynb your_example.py
 ```
 
-This will create the file `examples/your_example.py`. Open it,
+This will create the file `your_example.py`. Open it,
 fill in the headers, and generally edit it so that it looks nice.
-
-NOTE THAT THE CONVERSION SCRIPT MAY MAKE MISTAKES IN ITS ATTEMPTS
-TO SHORTEN LINES. MAKE SURE TO PROOFREAD THE GENERATED .py IN FULL.
-Or alternatively, make sure to keep your lines reasonably-sized (<90 char)
-to start with, so that the script won't have to shorten them.
 
 You can then preview what it looks like when converted back again
 to ipynb by running:
 
 ```
-python tutobooks py2nb ../examples/your_example.py preview.ipynb
+python tutobooks py2nb your_example.py preview.ipynb
 ```
-
-NOTE THAT THIS COMMAND WILL ERROR OUT IF ANY CELLS TAKES TOO LONG
-TO EXECUTE. In that case, make your code lighter/faster.
-Remember that examples are meant to demonstrate workflows, not
-train state-of-the-art models. They should
-stay very lightweight.
 
 Open the generated `preview.ipynb` and make sure it looks like what
 you expect. If not, keep editing `your_example.py` until it does.
 
-Finally, submit a PR adding `examples/your_example.py`.
-"""
+## Usage
+
+Conversion to markdown:
+
+```bash
+tutobooks nb2md mypath.ipynb mypath.md
+```
+
+Conversion to python:
+
+```bash
+tutobooks nb2py mypath.ipynb mypath.py
+```
+
+Conversion to markdown from python:
+
+```bash
+tutobooks py2md mypath.py mypath.md
+```
+
