@@ -65,8 +65,6 @@ import shutil
 import tempfile
 from pathlib import Path
 
-MAX_LOC = 300
-
 
 def nb_to_py(nb_path, py_path):
     f = open(nb_path)
@@ -168,10 +166,6 @@ def py_to_nb(py_path, nb_path, fill_outputs=False):
         notebook[key] = NB_BASE[key]
     notebook["metadata"]["colab"]["name"] = str(py_path).split("/")[-1][:-3]
     notebook["cells"] = cells
-    if loc > MAX_LOC:
-        raise ValueError(
-            "Found %d lines of code, but expected fewer than %d" % (loc, MAX_LOC)
-        )
 
     f = open(nb_path, "w")
     f.write(json.dumps(notebook, indent=1, sort_keys=True))
